@@ -1,0 +1,8 @@
+{
+  "routes": {
+    "/climatronik": {},
+    "/climatronik/about": {},
+    "/climatronik/contact": {},
+    "/climatronik/store": {}
+  }
+}
