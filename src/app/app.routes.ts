@@ -12,11 +12,6 @@ export const routes: Routes = [
         title: 'Witaj w Climatronik'
     },
     {
-        path: '**',
-        component: HomeComponent,
-        title: 'Witaj w Climatronik'
-    },
-    {
         path: 'store',
         component: StoreComponent,
         title: 'Climatronik Sklep'
@@ -35,5 +30,10 @@ export const routes: Routes = [
         path: 'about',
         component: AboutComponent,
         title: 'O nas'
+    },
+    {
+        path: '**',
+        component: HomeComponent,
+        title: 'Witaj w Climatronik'
     },
 ];
