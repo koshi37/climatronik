@@ -1,0 +1,149 @@
+@primary-color: #2563eb;
+@light-bg: #ffffff;
+@dark-bg: #1f2937;
+@text-light: #f3f4f6;
+@text-dark: #111827;
+
+.navbar {
+  position: fixed;
+  width: 100%;
+  z-index: 50;
+  transition: all 0.3s ease;
+  background-color: @light-bg;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+
+  &.scrolled {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+
+  &.dark-theme {
+    background-color: @dark-bg;
+    color: @text-light;
+  }
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.navbar-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 5rem;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: @text-dark;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+
+  .nav-item {
+    text-decoration: none;
+    color: @text-dark;
+    font-size: 0.9rem;
+    font-weight: 500;
+
+    &:hover {
+      color: @primary-color;
+    }
+  }
+}
+
+.nav-icons {
+  display: flex;
+  gap: 1rem;
+
+  .icon-btn {
+    background: none;
+    border: none;
+    padding: 0.5rem;
+    border-radius: 9999px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #f3f4f6;
+    }
+  }
+
+  .cart-btn {
+    position: relative;
+
+    .cart-count {
+      position: absolute;
+      top: -6px;
+      right: -6px;
+      background-color: @primary-color;
+      color: white;
+      font-size: 0.7rem;
+      height: 1.25rem;
+      width: 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 9999px;
+    }
+  }
+}
+
+.navbar-logo {
+  height: 50px;
+}
+
+/* Mobile menu */
+.mobile-only {
+  display: none;
+}
+
+.desktop-only {
+  display: flex;
+}
+
+@media (min-width: 768px) {
+  .mobile-menu {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .desktop-only {
+    display: none;
+  }
+
+  .mobile-only {
+    display: flex;
+  }
+
+  .mobile-menu {
+    position: fixed;
+    inset: 0;
+    background-color: @light-bg;
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: all 0.3s ease;
+    z-index: 49;
+
+    &.open {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    &.dark-theme {
+      background-color: @dark-bg;
+    }
+
+    .mobile-menu-content {
+      padding: 5rem 1rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+  }
+}

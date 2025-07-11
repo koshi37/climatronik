@@ -1,0 +1,45 @@
+<!-- <section class="listing">
+      <img
+        class="listing-photo"
+        [src]="storeItem().photo"
+        alt="Exterior photo of {{ storeItem().name }}"
+        crossorigin
+      />
+      <h2 class="listing-heading">{{ storeItem().name }}</h2>
+      <p class="listing-location">{{ storeItem().price }}, Dostępność: {{ storeItem().availability }}</p>
+      <br/>
+      <a [routerLink]="['product', storeItem().id]">Szczegóły</a>
+</section> -->
+
+<div class="product-item">
+  <!-- Product Image -->
+  <img [src]="storeItem().photo" alt="Photo of {{ storeItem().name }}" class="product-image" />
+
+  <!-- Product Info -->
+  <div class="product-info">
+    <div class="header">
+      <h2 class="title">{{ storeItem().name }}</h2>
+      <span class="availability">● dostępny</span>
+    </div>
+
+    <p class="price">
+      {{ storeItem().price }} netto, {{ storeItem().price }} brutto <span class="vat">(8% VAT)</span>
+    </p>
+
+    <div class="details">
+      <div>
+        <span class="label">Moc</span><br />
+        3500 W
+      </div>
+      <div>
+        <span class="label">Poziom hałasu</span><br />
+        od 25 dB
+      </div>
+      <div>
+        <span class="label">Zakres temperatur</span><br />
+        -25 do 50 ºC
+      </div>
+    </div>
+    <a [routerLink]="['product', storeItem().id]">Szczegóły</a>
+  </div>
+</div>

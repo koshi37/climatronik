@@ -1,0 +1,106 @@
+@import (less) "./../../../../../styles.less";
+@border-radius: 4px;
+
+.contact-form-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: @secondary-color;
+  border-radius: 4px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+  .form-header {
+    text-align: center;
+    margin-bottom: 20px;
+
+    h1 {
+      font-size: 24px;
+      color: @primary-color;
+    }
+
+    p {
+      font-size: 14px;
+      color: #777;
+    }
+  }
+
+  .contact-form {
+    .input-group {
+      margin-bottom: 15px;
+
+      label {
+        display: block;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 5px;
+      }
+
+      input[type="text"],
+      input[type="email"],
+      input[type="tel"],
+      textarea[id="message"] {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ddd;
+        border-radius: @border-radius;
+        outline: none;
+        transition: border 0.3s;
+        box-sizing: border-box;
+
+        &:focus {
+          border-color: @primary-color;
+        }
+      }
+
+      #message {
+        height: 100px;
+        resize: none;
+      }
+    }
+
+    .checkbox-group {
+      margin-bottom: 15px;
+
+      input[type="checkbox"] {
+        margin-right: 10px;
+      }
+
+      label {
+        font-size: 14px;
+        color: #555;
+      }
+    }
+
+    .consent {
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 20px;
+
+      input[type="checkbox"] {
+        margin-right: 10px;
+      }
+
+      label {
+        font-size: 14px;
+        color: #555;
+      }
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 12px;
+      background-color: @primary-color;
+      border: none;
+      border-radius: @border-radius;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background-color: @primary-color;
+      }
+    }
+  }
+}

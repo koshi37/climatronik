@@ -1,0 +1,62 @@
+<!-- <nav class="topbar">
+  <a [routerLink]="['/']">
+          <img class="brand-logo" src="klima.png" alt="logo" aria-hidden="true" />
+  </a>
+  <ul class="nav-links">
+    <li><a [routerLink]="['/about']">O nas</a></li>
+    <li><a [routerLink]="['/store']">Sklep</a></li>
+    <li><a [routerLink]="['/contact']">Kontakt</a></li>
+  </ul>
+  <div class="profile">
+    <img src="assets/avatar.png" alt="User" class="avatar" />
+  </div>
+</nav> -->
+
+<nav [ngClass]="{ 'scrolled': isScrolled, 'dark-theme': isDarkMode }" class="navbar">
+  <div class="container">
+    <div class="navbar-inner">
+      <img class="navbar-logo" src="klima.png" alt="logo" aria-hidden="true" />
+
+      <div class="nav-links desktop-only">
+        <a *ngFor="let item of navItems" [routerLink]="item.routing" class="nav-item">{{ item.name }}</a>
+      </div>
+
+      <div class="nav-icons desktop-only">
+        <!-- <button (click)="toggleTheme()" class="icon-btn" aria-label="Toggle theme">
+          <mat-icon *ngIf="isDarkMode">light_mode</mat-icon>
+          <mat-icon *ngIf="!isDarkMode">dark_mode</mat-icon>
+        </button>
+        <button class="icon-btn" aria-label="Search"><mat-icon>search</mat-icon></button> -->
+        <button class="icon-btn" aria-label="User"><mat-icon>account_circle</mat-icon></button>
+        <button class="icon-btn cart-btn" aria-label="Cart">
+          <mat-icon>shopping_cart</mat-icon>
+          <span class="cart-count">{{ cartCount }}</span>
+        </button>
+      </div>
+
+      <div class="mobile-toggle mobile-only">
+        <button (click)="toggleMenu()" class="icon-btn" aria-label="Toggle menu">
+          <i [ngClass]="isOpen ? 'icon-user' : 'icon-user'"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="mobile-menu" [ngClass]="{ 'open': isOpen }">
+    <div class="mobile-menu-content">
+      <a *ngFor="let item of navItems" [routerLink]="item.routing" class="nav-item" (click)="toggleMenu()">{{ item.name }}</a>
+
+      <div class="nav-icons">
+        <!-- <button (click)="toggleTheme()" class="icon-btn" aria-label="Toggle theme">
+          <i [ngClass]="isDarkMode ? 'icon-sun' : 'icon-moon'"></i>
+        </button>
+        <button class="icon-btn" aria-label="Search"><i class="icon-search"></i></button> -->
+        <button class="icon-btn" aria-label="User"><i class="icon-user"></i></button>
+        <button class="icon-btn cart-btn" aria-label="Cart">
+          <i class="icon-cart"></i>
+          <span class="cart-count">{{ cartCount }}</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>

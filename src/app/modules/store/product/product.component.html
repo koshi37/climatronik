@@ -1,0 +1,58 @@
+<button onclick="history.back()"><mat-icon>arrow_back_2</mat-icon></button>
+
+<!-- Zoom Modal -->
+<div class="zoom-overlay" *ngIf="isZoomed" (click)="closeZoom()">
+  <div class="zoom-content" (click)="$event.stopPropagation()">
+    <button class="close-btn" (click)="closeZoom()">×</button>
+    <img [src]="selectedImage" alt="Zoomed product image" />
+  </div>
+</div>
+
+<div class="product-detail-container">
+  <!-- Left Section: Image gallery -->
+  <div class="product-images">
+    <div class="main-image" (click)="zoomImage()">
+      <img [src]="selectedImage" alt="Product image" />
+    </div>
+    <div class="thumbnail-row">
+      <img
+        *ngFor="let img of images"
+        [src]="img"
+        (click)="selectImage(img)"
+        [class.selected]="img === selectedImage"
+        alt="Thumbnail"
+      />
+    </div>
+  </div>
+
+  <!-- Middle Section: Product Info -->
+  <div class="product-info">
+    <h1>{{ product?.name }}</h1>
+    <!-- <div class="rating-price">
+      <span class="rating">⭐ {{ product.rating }} ({{ product.reviews }} recenzji)</span>
+    </div> -->
+
+    <div class="specs">
+      <p><strong>Moc:</strong> {{ product?.power }}</p>
+      <p><strong>Poziom hałasu:</strong> {{ product?.noise }}</p>
+      <p><strong>Zakres temperatur:</strong> {{ product?.temperature }}</p>
+    </div>
+
+    <div class="more-info">
+        <p>{{ product?.desc }}</p>
+    </div>
+  </div>
+
+  <!-- Right Section: Cart -->
+  <div class="product-purchase">
+    <div class="price">Cena brutto: {{ product?.price | number:'1.2-2' }}zł</div>
+    <!-- <div class="quantity">
+      <label>Ilość:</label>
+      <select [(ngModel)]="quantity">
+        <option *ngFor="let q of [1,2,3,4,5]" [value]="q">{{ q }}</option>
+      </select>
+    </div> -->
+    <button (click)="addToCart()" class="add-to-cart">Dodaj do koszyka</button>
+    <!-- <button class="buy-now">Kup teraz</button> -->
+  </div>
+</div>
